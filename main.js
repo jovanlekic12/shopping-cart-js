@@ -84,15 +84,3 @@ cars.forEach((car) => {
   );
 });
 carManager.renderCars();
-
-list.addEventListener("click", function (event) {
-  console.log(event.target);
-  if (event.target.classList.contains("delete__car")) {
-    const li = event.target.closest("li");
-    const id = li.id;
-    console.log(id);
-    carManager.deleteCar(id);
-    li.remove();
-    console.log(carManager);
-  }
-});
