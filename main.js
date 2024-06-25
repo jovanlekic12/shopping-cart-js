@@ -33,7 +33,7 @@ class CarManager {
       }"><strong>Available:</strong> ${car.available}</p>
       <button class="delete__car" data-carid="${car.id}">Delete</button>
       </li>`;
-      list.insertAdjacentHTML("beforebegin", html);
+      list.insertAdjacentHTML("beforeend", html);
     });
   }
 }
@@ -84,11 +84,15 @@ cars.forEach((car) => {
   );
 });
 carManager.renderCars();
+
 list.addEventListener("click", function (event) {
+  console.log(event.target);
   if (event.target.classList.contains("delete__car")) {
     const li = event.target.closest("li");
     const id = li.id;
-    carManager.deleteBook(id);
+    console.log(id);
+    carManager.deleteCar(id);
     li.remove();
+    console.log(carManager);
   }
 });
