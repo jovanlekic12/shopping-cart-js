@@ -7,7 +7,7 @@ export const cars = [
     doors: 4,
     price: 22000,
     available: "yes",
-    image: "./img/first car toyota.jpg",
+    image: "./images/first car toyota.jpg",
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ export const cars = [
     doors: 4,
     price: 25000,
     available: "yes",
-    image: "./img/honda civic second.webp",
+    image: "./images/honda civic second.webp",
   },
   {
     id: 3,
@@ -27,7 +27,7 @@ export const cars = [
     doors: 2,
     price: 35000,
     available: "no",
-    image: "./img/mustant 3.png",
+    image: "./images/mustant 3.png",
   },
   {
     id: 4,
@@ -37,7 +37,7 @@ export const cars = [
     doors: 4,
     price: 45000,
     available: "yes",
-    image: "./img/BMW 3 Series 4.png",
+    image: "./images/BMW 3 Series 4.png",
   },
   {
     id: 5,
@@ -47,7 +47,7 @@ export const cars = [
     doors: 2,
     price: 32000,
     available: "no",
-    image: "./img/Chavrolet 5.jpg",
+    image: "./images/Chavrolet 5.jpg",
   },
   {
     id: 6,
@@ -57,7 +57,7 @@ export const cars = [
     doors: 4,
     price: 42000,
     available: "yes",
-    image: "./img/audi a4 6.jpg",
+    image: "./images/audi a4 6.jpg",
   },
   {
     id: 7,
@@ -67,7 +67,7 @@ export const cars = [
     doors: 4,
     price: 50000,
     available: "yes",
-    image: "./img/mercedes e klasa 7.jpg",
+    image: "./images/mercedes e klasa 7.jpg",
   },
   {
     id: 8,
@@ -77,7 +77,7 @@ export const cars = [
     doors: 4,
     price: 38000,
     available: "no",
-    image: "./img/lexus 8.webp",
+    image: "./images/lexus 8.webp",
   },
   {
     id: 9,
@@ -87,7 +87,7 @@ export const cars = [
     doors: 4,
     price: 28000,
     available: "yes",
-    image: "./img/golf 9.jpg",
+    image: "./images/golf 9.jpg",
   },
   {
     id: 10,
@@ -97,6 +97,6 @@ export const cars = [
     doors: 4,
     price: 32000,
     available: "yes",
-    image: "./img/subaru 10.png",
+    image: "./images/subaru 10.png",
   },
 ];
