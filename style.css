@@ -2,6 +2,10 @@ html {
   font-size: 62.5%;
 }
 
+body {
+  background-color: rgb(160, 247, 247);
+}
+
 .title {
   font-size: 4rem;
   text-align: center;
@@ -21,6 +25,7 @@ html {
   display: flex;
   justify-content: flex-end;
   gap: 5rem;
+  margin-bottom: 2rem;
 }
 
 .filter__div {
@@ -34,4 +39,56 @@ html {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 2rem;
+  padding: 3rem;
+  background-color: #7b7b7b;
+}
+img {
+  width: 320px;
+  height: 220px;
+  padding-top: 10px;
+}
+
+.first__data_title {
+  font-size: 3rem;
+  margin: 0;
+}
+
+.second__data {
+  font-size: 2.2rem;
+}
+
+.price {
+  font-weight: 800;
+  color: red;
+  text-decoration: underline;
+}
+
+.available {
+  font-size: 3rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  border-radius: 2rem;
+}
+
+.green {
+  background-color: rgb(33, 219, 33);
+}
+
+.red {
+  background-color: rgb(246, 46, 46);
+}
+
+.delete__car {
+  font-size: 3rem;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  border: 0;
+  background-color: rgb(249, 52, 52);
+}
+
+.delete__car:hover {
+  background-color: rgb(186, 2, 2);
+  cursor: pointer;
 }

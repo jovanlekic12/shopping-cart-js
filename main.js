@@ -15,7 +15,7 @@ class CarManager {
     this.cars.forEach((car) => {
       const html = `<li class="list__item" id="${car.id}">
       <div class="first__data">
-      <h1>${car.name}</h1>
+      <h1 class="first__data_title">${car.name}</h1>
       <img src="${car.image}" alt="404 not found">
       </div>
       <div class="second__data">
@@ -24,10 +24,12 @@ class CarManager {
       <p><strong>Doors:</strong> ${car.doors}</p>
       <p><strong>Price:</strong><span class="price"> $${car.price}</span></p>
       </div>
-      <p><strong>Available:</strong> ${car.available}</p>
-      <button class"delete__car" data-carid="${car.id}">Delete</button>
+      <p class="available ${
+        car.available === "yes" ? "green" : "red"
+      }"><strong>Available:</strong> ${car.available}</p>
+      <button class="delete__car" data-carid="${car.id}">Delete</button>
       </li>`;
-      list.insertAdjacentHTML("afterbegin", html);
+      list.insertAdjacentHTML("beforebegin", html);
     });
   }
 }
