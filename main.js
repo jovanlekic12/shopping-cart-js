@@ -20,7 +20,7 @@ class CarManager {
       const html = `<li class="list__item" id="${car.id}">
       <div class="first__data">
       <h1 class="first__data_title">${car.name}</h1>
-      <img src="${car.image}" alt="404 not found">
+      <img src="${car.image}" alt="${car.image}">
       </div>
       <div class="second__data">
       <p><strong>Brand:</strong> ${car.brand}</p>
