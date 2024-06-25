@@ -11,6 +11,10 @@ class CarManager {
     this.cars.push(car);
   }
 
+  deleteCar(id) {
+    this.cars = this.cars.filter((car) => car.id !== id);
+  }
+
   renderCars() {
     this.cars.forEach((car) => {
       const html = `<li class="list__item" id="${car.id}">
@@ -65,7 +69,6 @@ class Car {
 }
 
 const carManager = new CarManager();
-
 cars.forEach((car) => {
   carManager.addCar(
     new Car(
@@ -80,5 +83,12 @@ cars.forEach((car) => {
     )
   );
 });
-console.log(carManager);
 carManager.renderCars();
+list.addEventListener("click", function (event) {
+  if (event.target.classList.contains("delete__car")) {
+    const li = event.target.closest("li");
+    const id = li.id;
+    carManager.deleteBook(id);
+    li.remove();
+  }
+});
