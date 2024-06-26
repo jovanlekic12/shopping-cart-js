@@ -2,10 +2,13 @@ import "./style.css";
 import "./data.js";
 import { cars } from "./data.js";
 const list = document.querySelector(".car__container");
+const availability = document.querySelector(".availability");
 class CarManager {
   cars;
+  filteredCars;
   constructor() {
     this.cars = [];
+    this.filteredCars = [];
   }
   addCar(car) {
     this.cars.push(car);
@@ -15,8 +18,38 @@ class CarManager {
     this.cars = this.cars.filter((car) => car.id !== id);
   }
 
-  renderCars() {
-    this.cars.forEach((car) => {
+  fillArray() {
+    cars.forEach((car) => {
+      carManager.addCar(
+        new Car(
+          car.id,
+          car.name,
+          car.brand,
+          car.manufacturedYear,
+          car.doors,
+          car.price,
+          car.available,
+          car.image
+        )
+      );
+    });
+  }
+
+  filterCars(key, value) {
+    this.filteredCars = this.cars;
+    this.filteredCars = this.filteredCars.filter((car) => car[key] === value);
+    // if (key === "available-yes") {
+    //   this.cars = this.cars.filter((car) => car.available === "yes");
+    //   return;
+    // } else if (key === "available-yes") {
+    //   this.cars = this.cars.filter((car) => car.available === "no");
+    //   return;
+    // }
+  }
+
+  renderCars(cars) {
+    list.innerHTML = "";
+    cars.forEach((car) => {
       const html = `<li class="list__item" id="${car.id}">
       <div class="first__data">
       <h1 class="first__data_title">${car.name}</h1>
@@ -69,18 +102,20 @@ class Car {
 }
 
 const carManager = new CarManager();
-cars.forEach((car) => {
-  carManager.addCar(
-    new Car(
-      car.id,
-      car.name,
-      car.brand,
-      car.manufacturedYear,
-      car.doors,
-      car.price,
-      car.available,
-      car.image
-    )
-  );
+carManager.fillArray();
+carManager.renderCars(carManager.cars);
+const deleteButtons = document.querySelectorAll(".delete__car");
+deleteButtons.forEach((button) => {
+  button.addEventListener("click", function () {
+    const li = button.closest("li");
+    const id = li.id;
+    carManager.deleteCar(Number(id));
+    li.remove();
+  });
 });
-carManager.renderCars();
+
+availability.addEventListener("click", function (event) {
+  const [key, value] = event.target.value.split("-");
+  carManager.filterCars(key, value);
+  carManager.renderCars(carManager.filteredCars);
+});
