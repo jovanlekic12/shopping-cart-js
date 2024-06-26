@@ -4,6 +4,7 @@ import { cars } from "./data.js";
 const list = document.querySelector(".car__container");
 const availability = document.querySelector(".availability");
 const doors = document.querySelector(".doors");
+const brand = document.querySelector(".brand");
 class CarManager {
   cars;
   filteredCars;
@@ -124,6 +125,12 @@ availability.addEventListener("change", function (event) {
 doors.addEventListener("change", function (event) {
   const [key, value] = event.target.value.split("-");
   console.log(key, value);
+  carManager.filterCars(key, value);
+  carManager.renderCars(carManager.filteredCars);
+});
+
+brand.addEventListener("change", function (event) {
+  const [key, value] = event.target.value.split("-");
   carManager.filterCars(key, value);
   carManager.renderCars(carManager.filteredCars);
 });

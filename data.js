@@ -62,7 +62,7 @@ export const cars = [
   {
     id: 7,
     name: "Mercedes-Benz E-Class",
-    brand: "Mercedes-Benz",
+    brand: "Mercedes",
     manufacturedYear: 2020,
     doors: 4,
     price: 50000,
