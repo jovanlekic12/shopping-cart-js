@@ -2,9 +2,7 @@ import "./style.css";
 import "./data.js";
 import { cars } from "./data.js";
 const list = document.querySelector(".car__container");
-const availability = document.querySelector(".availability");
-const doors = document.querySelector(".doors");
-const brand = document.querySelector(".brand");
+const filter = document.querySelector(".filter");
 class CarManager {
   cars;
   filteredCars;
@@ -38,7 +36,7 @@ class CarManager {
   }
 
   filterCars(key, value) {
-    this.filteredCars = this.cars;
+    this.filteredCars = [...this.cars];
     this.filteredCars = this.filteredCars.filter((car) => car[key] == value);
     // if (key === "available-yes") {
     //   this.cars = this.cars.filter((car) => car.available === "yes");
@@ -116,20 +114,7 @@ deleteButtons.forEach((button) => {
   });
 });
 
-availability.addEventListener("change", function (event) {
-  const [key, value] = event.target.value.split("-");
-  carManager.filterCars(key, value);
-  carManager.renderCars(carManager.filteredCars);
-});
-
-doors.addEventListener("change", function (event) {
-  const [key, value] = event.target.value.split("-");
-  console.log(key, value);
-  carManager.filterCars(key, value);
-  carManager.renderCars(carManager.filteredCars);
-});
-
-brand.addEventListener("change", function (event) {
+filter.addEventListener("change", function (event) {
   const [key, value] = event.target.value.split("-");
   carManager.filterCars(key, value);
   carManager.renderCars(carManager.filteredCars);
