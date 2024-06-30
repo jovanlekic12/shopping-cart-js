@@ -3,6 +3,7 @@ import "./data.js";
 import { cars } from "./data.js";
 const list = document.querySelector(".car__container");
 const filter = document.querySelector(".filter");
+const sort = document.querySelector(".sortOptions");
 class CarManager {
   cars;
   filteredCars;
@@ -16,6 +17,22 @@ class CarManager {
 
   deleteCar(id) {
     this.cars = this.cars.filter((car) => car.id !== id);
+  }
+
+  sortingArray(value) {
+    if (value === "high") {
+      this.cars.sort((a, b) => b.price - a.price);
+    } else if (value === "low") {
+      this.cars.sort((a, b) => a.price - b.price);
+    } else if (value === "az") {
+      this.cars.sort((a, b) =>
+        a.brand.toLowerCase().localeCompare(b.brand.toLowerCase())
+      );
+    } else if (value === "za") {
+      this.cars.sort((a, b) =>
+        b.brand.toLowerCase().localeCompare(a.brand.toLowerCase())
+      );
+    }
   }
 
   fillArray() {
@@ -103,6 +120,7 @@ class Car {
 
 const carManager = new CarManager();
 carManager.fillArray();
+carManager.sortingArray("az");
 carManager.renderCars(carManager.cars);
 const deleteButtons = document.querySelectorAll(".delete__car");
 deleteButtons.forEach((button) => {
@@ -118,4 +136,11 @@ filter.addEventListener("change", function (event) {
   const [key, value] = event.target.value.split("-");
   carManager.filterCars(key, value);
   carManager.renderCars(carManager.filteredCars);
+  console.log(key, value);
+});
+
+sort.addEventListener("change", function (event) {
+  console.log(event.target.value);
+  carManager.sortingArray(event.target.value);
+  carManager.renderCars(carManager.cars);
 });
