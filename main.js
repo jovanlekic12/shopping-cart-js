@@ -55,13 +55,6 @@ class CarManager {
   filterCars(key, value) {
     this.filteredCars = [...this.cars];
     this.filteredCars = this.filteredCars.filter((car) => car[key] == value);
-    // if (key === "available-yes") {
-    //   this.cars = this.cars.filter((car) => car.available === "yes");
-    //   return;
-    // } else if (key === "available-yes") {
-    //   this.cars = this.cars.filter((car) => car.available === "no");
-    //   return;
-    // }
   }
 
   renderCars(cars) {
